@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="dbpruebaModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="personas">
+    <Key>
+      <PropertyRef Name="cedula" />
+    </Key>
+    <Property Name="cedula" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="nombres" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="apellidos" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="celular" Type="varchar" MaxLength="50" />
+    <Property Name="correo" Type="varchar" MaxLength="150" />
+  </EntityType>
+  <EntityType Name="usuarios">
+    <Key>
+      <PropertyRef Name="usuario" />
+    </Key>
+    <Property Name="usuario" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="clave" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="cedula" Type="varchar" MaxLength="15" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_usuario_persona">
+    <End Role="personas" Type="Self.personas" Multiplicity="1" />
+    <End Role="usuarios" Type="Self.usuarios" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="personas">
+        <PropertyRef Name="cedula" />
+      </Principal>
+      <Dependent Role="usuarios">
+        <PropertyRef Name="cedula" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="dbpruebaModelStoreContainer">
+    <EntitySet Name="personas" EntityType="Self.personas" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="usuarios" EntityType="Self.usuarios" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_usuario_persona" Association="Self.FK_usuario_persona">
+      <End Role="personas" EntitySet="personas" />
+      <End Role="usuarios" EntitySet="usuarios" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

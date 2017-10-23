@@ -1,0 +1,50 @@
+﻿@model wPersonasEntity.Models.persona
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>persona</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.nombres)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nombres)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.apellidos)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.apellidos)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.celular)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.celular)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.correo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.correo)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.cedula }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
