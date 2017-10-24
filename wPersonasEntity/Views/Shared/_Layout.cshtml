@@ -25,6 +25,7 @@
                     <li>@Html.ActionLink("Acerca de", "About", "Home")</li>
                     <li>@Html.ActionLink("Contacto", "Contact", "Home")</li>
                     <li>@Html.ActionLink("Persona", "Index", "personas")</li>
+                    <li>@Html.ActionLink("PersonaUsuario", "CreatePU", "PersonaUsuario")</li>
                 </ul>
             </div>
         </div>
@@ -40,5 +41,10 @@
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
+    <script type="text/javascript">
+        $(function() {
+            $("#spRpta").load("/home/Potencia?iBase=2&iExp=3");
+        });
+    </script>
 </body>
 </html>

@@ -13,6 +13,19 @@ namespace wPersonasEntity.Controllers
             return View();
         }
 
+        public ActionResult Potencia(int iBase, int iExp)
+        {
+            double dValor = iBase;
+
+            for(int e = iExp; e > 1; e--)
+            {
+                dValor *= 2;
+            }            
+
+            return PartialView(dValor);
+
+        }
+
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";

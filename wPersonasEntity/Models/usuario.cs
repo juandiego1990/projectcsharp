@@ -11,9 +11,11 @@ namespace wPersonasEntity.Models
 {
     using System;
     using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
     
     public partial class usuario
     {
+        [Key]
         public string usuario1 { get; set; }
         public string clave { get; set; }
         public string cedula { get; set; }
